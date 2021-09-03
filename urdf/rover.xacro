@@ -1,0 +1,362 @@
+<?xml version="1.0" ?>
+<robot name="rover" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find rover_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find rover_description)/urdf/rover.trans" />
+<xacro:include filename="$(find rover_description)/urdf/rover.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.0007953579759249263 0.00301706160533866 0.1929078480073617"/>
+    <mass value="46.34238244743093"/>
+    <inertia ixx="0.197231" ixy="-0.002112" ixz="-0.001377" iyy="0.46903" iyz="-0.000454" izz="0.614476"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://rover_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="orange"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://rover_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="bogieL_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.04258483763749371 -0.001418471753633993 -0.07684005264855909"/>
+    <mass value="0.8627805609730256"/>
+    <inertia ixx="0.001595" ixy="-3.1e-05" ixz="-0.000792" iyy="0.002074" iyz="-5.5e-05" izz="0.000605"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.115512 -0.124858 -0.199197"/>
+    <geometry>
+      <mesh filename="package://rover_description/meshes/bogieL_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="green"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.115512 -0.124858 -0.199197"/>
+    <geometry>
+      <mesh filename="package://rover_description/meshes/bogieL_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="bogieR_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.04258483763754503 0.0014187176789327016 -0.07684005264855873"/>
+    <mass value="0.8627805609730251"/>
+    <inertia ixx="0.001595" ixy="3.1e-05" ixz="-0.000792" iyy="0.002074" iyz="5.5e-05" izz="0.000605"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.115512 0.127007 -0.199197"/>
+    <geometry>
+      <mesh filename="package://rover_description/meshes/bogieR_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="green"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.115512 0.127007 -0.199197"/>
+    <geometry>
+      <mesh filename="package://rover_description/meshes/bogieR_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="camera_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.04031689970809438 0.009875788727428801 -0.16213953546240567"/>
+    <mass value="0.18583696532425"/>
+    <inertia ixx="7.7e-05" ixy="0.0" ixz="-1e-06" iyy="1.1e-05" iyz="0.0" izz="7.6e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.195928 -0.039082 -0.402981"/>
+    <geometry>
+      <mesh filename="package://rover_description/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="red"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.195928 -0.039082 -0.402981"/>
+    <geometry>
+      <mesh filename="package://rover_description/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rockerR_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.003960524891233941 0.0015703956534752483 -0.08641799810063396"/>
+    <mass value="1.5589155328998232"/>
+    <inertia ixx="0.003162" ixy="-3e-06" ixz="8.3e-05" iyy="0.009515" iyz="9.4e-05" izz="0.006596"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.089044 0.127007 -0.199197"/>
+    <geometry>
+      <mesh filename="package://rover_description/meshes/rockerR_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="green"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.089044 0.127007 -0.199197"/>
+    <geometry>
+      <mesh filename="package://rover_description/meshes/rockerR_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Lidar_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.010497448896311809 -0.034398476440228 -0.1403482040363242"/>
+    <mass value="1.3392997077576563"/>
+    <inertia ixx="0.00062" ixy="2.2e-05" ixz="0.000159" iyy="0.000966" iyz="-1.3e-05" izz="0.001105"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.017127 -0.039082 -0.402981"/>
+    <geometry>
+      <mesh filename="package://rover_description/meshes/Lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="green"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.017127 -0.039082 -0.402981"/>
+    <geometry>
+      <mesh filename="package://rover_description/meshes/Lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="RW1_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.00013853617102332905 -0.02500018066582338 4.902446378574066e-07"/>
+    <mass value="0.10360940183775207"/>
+    <inertia ixx="0.000164" ixy="-0.0" ixz="-0.0" iyy="0.000285" iyz="0.0" izz="0.000164"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.175369 0.140616 -0.074589"/>
+    <geometry>
+      <mesh filename="package://rover_description/meshes/RW1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.175369 0.140616 -0.074589"/>
+    <geometry>
+      <mesh filename="package://rover_description/meshes/RW1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="castorR_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.00013862695011349763 -0.02500018066582327 4.90244624881675e-07"/>
+    <mass value="0.10360940183775126"/>
+    <inertia ixx="0.000164" ixy="-0.0" ixz="-0.0" iyy="0.000285" iyz="0.0" izz="0.000164"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.013435 0.140616 -0.074589"/>
+    <geometry>
+      <mesh filename="package://rover_description/meshes/castorR_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.013435 0.140616 -0.074589"/>
+    <geometry>
+      <mesh filename="package://rover_description/meshes/castorR_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="RW2_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.0001392266976711909 -0.02500018066582324 -3.426740136092121e-07"/>
+    <mass value="0.1036094018377507"/>
+    <inertia ixx="0.000164" ixy="-0.0" ixz="-0.0" iyy="0.000285" iyz="0.0" izz="0.000164"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.183082 0.140616 -0.077275"/>
+    <geometry>
+      <mesh filename="package://rover_description/meshes/RW2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.183082 0.140616 -0.077275"/>
+    <geometry>
+      <mesh filename="package://rover_description/meshes/RW2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rockerL_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.003960524891134964 -0.0015701497281764704 -0.08641799810063432"/>
+    <mass value="1.5589155328998294"/>
+    <inertia ixx="0.003162" ixy="3e-06" ixz="8.3e-05" iyy="0.009515" iyz="-9.4e-05" izz="0.006596"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.089044 -0.124858 -0.199197"/>
+    <geometry>
+      <mesh filename="package://rover_description/meshes/rockerL_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.089044 -0.124858 -0.199197"/>
+    <geometry>
+      <mesh filename="package://rover_description/meshes/rockerL_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="LW1_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.00013853617102349558 0.025000426591776426 4.902446377463843e-07"/>
+    <mass value="0.1036094018377987"/>
+    <inertia ixx="0.000164" ixy="-0.0" ixz="-0.0" iyy="0.000285" iyz="0.0" izz="0.000164"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.175369 -0.138467 -0.074589"/>
+    <geometry>
+      <mesh filename="package://rover_description/meshes/LW1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.175369 -0.138467 -0.074589"/>
+    <geometry>
+      <mesh filename="package://rover_description/meshes/LW1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="castorL_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.00013862695011370406 0.025000426591776537 4.902446248955528e-07"/>
+    <mass value="0.10360940183779824"/>
+    <inertia ixx="0.000164" ixy="-0.0" ixz="-0.0" iyy="0.000285" iyz="0.0" izz="0.000164"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.013435 -0.138467 -0.074589"/>
+    <geometry>
+      <mesh filename="package://rover_description/meshes/castorL_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.013435 -0.138467 -0.074589"/>
+    <geometry>
+      <mesh filename="package://rover_description/meshes/castorL_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="LW2__1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.0001392266976714407 0.025000426591776537 -3.4267401347043425e-07"/>
+    <mass value="0.10360940183779754"/>
+    <inertia ixx="0.000164" ixy="-0.0" ixz="-0.0" iyy="0.000285" iyz="-0.0" izz="0.000164"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.183082 -0.138467 -0.077275"/>
+    <geometry>
+      <mesh filename="package://rover_description/meshes/LW2__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.183082 -0.138467 -0.077275"/>
+    <geometry>
+      <mesh filename="package://rover_description/meshes/LW2__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="shaft1" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.115512 0.124858 0.199197"/>
+  <parent link="base_link"/>
+  <child link="bogieL_1"/>
+</joint>
+
+<joint name="shaft2" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.115512 -0.127007 0.199197"/>
+  <parent link="base_link"/>
+  <child link="bogieR_1"/>
+</joint>
+
+<joint name="camera" type="fixed">
+  <origin rpy="0 0 0" xyz="0.195928 0.039082 0.402981"/>
+  <parent link="base_link"/>
+  <child link="camera_1"/>
+</joint>
+
+<joint name="rockerR" type="revolute">
+  <origin rpy="0 0 0" xyz="0.089044 -0.127007 0.199197"/>
+  <parent link="base_link"/>
+  <child link="rockerR_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+  <limit effort="100" lower="-0.261799" upper="0.523599" velocity="100"/>
+</joint>
+
+<joint name="Lidar" type="fixed">
+  <origin rpy="0 0 0" xyz="0.017127 0.039082 0.402981"/>
+  <parent link="base_link"/>
+  <child link="Lidar_1"/>
+</joint>
+
+<joint name="RW1" type="continuous">
+  <origin rpy="0 0 0" xyz="0.086325 -0.013609 -0.124608"/>
+  <parent link="rockerR_1"/>
+  <child link="RW1_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="CW1" type="continuous">
+  <origin rpy="0 0 0" xyz="-0.075609 -0.013609 -0.124608"/>
+  <parent link="rockerR_1"/>
+  <child link="castorR_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="RW2" type="continuous">
+  <origin rpy="0 0 0" xyz="-0.06757 -0.013609 -0.121922"/>
+  <parent link="bogieR_1"/>
+  <child link="RW2_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="rockerL" type="revolute">
+  <origin rpy="0 0 0" xyz="0.089044 0.124858 0.199197"/>
+  <parent link="base_link"/>
+  <child link="rockerL_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+  <limit effort="100" lower="-0.523599" upper="0.523599" velocity="100"/>
+</joint>
+
+<joint name="LW1" type="continuous">
+  <origin rpy="0 0 0" xyz="0.086325 0.013609 -0.124608"/>
+  <parent link="rockerL_1"/>
+  <child link="LW1_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="CW2" type="continuous">
+  <origin rpy="0 0 0" xyz="-0.075609 0.013609 -0.124608"/>
+  <parent link="rockerL_1"/>
+  <child link="castorL_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="LW2" type="continuous">
+  <origin rpy="0 0 0" xyz="-0.06757 0.013609 -0.121922"/>
+  <parent link="bogieL_1"/>
+  <child link="LW2__1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+</robot>
