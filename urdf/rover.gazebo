@@ -205,8 +205,8 @@
       <updateRate>20.0</updateRate>
     </plugin>
   </gazebo>
- </gazebo>
-   <gazebo>
+
+  <gazebo>
     <plugin name="gps_controller" filename="libhector_gazebo_ros_gps.so">
       <updateRate>40</updateRate>
       <robotNamespace>/</robotNamespace>
